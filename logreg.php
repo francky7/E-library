@@ -1,8 +1,9 @@
 
 <?php
-include "int.php";
+include "new.php";
 
 // declaration de variables pour user
+$rollnumber='';
 $rollnumber = (isset($_POST['roll'])? $_POST['roll']:'');
 $name = (isset($_POST['name'])? $_POST['name']:'');
 $email =(isset($_POST['email'])? $_POST['email']: '');
@@ -14,9 +15,23 @@ $rollnumber1 = (isset($_POST['roll1'])? $_POST['roll1']:'');
 $password1 = (isset($_POST['password1'])? $_POST['password1']:'');
 
 //insert to database
-$sql = "INSERT INTO user_id (user_rollnumber, user_name, user_email, user_passw, user_course) VALUES ('$rollnumber', '$name', '$email', '$password', '$course')";
+$sql = "INSERT INTO user (user_id, user_name, user_email, user_passw, user_course) VALUES ('$rollnumber', '$name', '$email', '$password', '$course')";
 $db->query($sql);
 
+//connect to db
+if (isset($_POST['signin'])) {
+  echo $rollnumber1;
+$sql="SELECT * FROM user WHERE user_id ='$rollnumber1'";
+$result=$db->query($sql);
+$count=mysqli_num_rows($result);
+echo $count;
+if ($count>0) {
+  echo 'connected';
+}
+else {
+  echo 'Password Error';
+}
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,12 +39,12 @@ $db->query($sql);
 <head>
   <meta charset="UTF-8">
   <title>Material design sign up form</title>
-  
-  
-  
+
+
+
       <link rel="stylesheet" href="css/style.css">
 
-  
+
 </head>
 
 <body>
@@ -38,29 +53,29 @@ $db->query($sql);
     <h1>Sign up</h1>
     <form method="post">
        <input type="file" id="file"/>
-    <input type="text" name="name" placeholder="name" /> 
+    <input type="text" name="name" placeholder="name" />
     <input type="text" name="roll" id="roll" placeholder="Roll number" />
     <input type="text" name="email" placeholder="E-mail" />
     <input type="password" name="password" placeholder="Password" />
     <input type="text" name="course" placeholder="course" />
-    
+
     <input type="submit" name="signup_submit" value="Sign me up" action="logreg.php"/>
     </form>
-   
+
   </div>
-  
+
   <div class="right">
    <h1>Login</h1>
     <form method="post">
      <input type="text" name="roll1" placeholder="Roll number" />
     <input type="password" name="password1" placeholder="Password" />
-</form>
-    <input type="submit" name="signup_submit" value="Login" />
-    
+    <input type="submit" name="signin" value="Login" />
+    </form>
+
   </div>
   <div class="or">OR</div>
 </div>
-  
-  
+
+
 </body>
 </html>
