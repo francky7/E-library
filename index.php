@@ -46,40 +46,17 @@
 				</div>
 
 				<div class="content">
-<<<<<<< HEAD
-					<!-- <p>Etiam ut eros est, quis ornare dui. <br/>Pellentesque habitant.</p> -->
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-					<p>Etiam ut eros est, quis ornare dui. <br/>Pellentesque habitant.</p>
-=======
-					<!-- <p>Etiam ut eros est, quis ornare dui. <br/>Pellentesque habitant.</p> -->
->>>>>>> 077387e67a22700c7ab39758f1d051db4815b3c8
-=======
-=======
->>>>>>> bonjour
-
-
->>>>>>> e1ba98b4ed5157cbf72e9e987fc7b547fceec8ce
->>>>>>> 831d15de1f7f2a16c432c2dc20f95a18e196f4ef
 					<p>“Reading is to the mind, what exercise is to the body.
 					As by the one, health is preserved, strengthened, and invigorated: by the other,<br/>
 					virtue (which is the health of the mind) is kept alive, cherished, and confirmed.” <br>
 						 - Joseph Addison</p>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> e900c5b427b710cc2f72492c4da054e39eba8660
-=======
->>>>>>> bonjour
-=======
->>>>>>> 077387e67a22700c7ab39758f1d051db4815b3c8
+
 				</div>
 			</div>
 
 		</div> <!-- end header -->
 
-<a class="button" href='logreg.html'>Get Started</a>
+<a class="button" href='logreg.php'>Get Started</a>
 		<div class="social">
 			<a href="#" class="fa-stack fa-lg">
 				 <i class="fa fa-circle fa-stack-2x"></i>
