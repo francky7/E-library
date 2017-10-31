@@ -1,8 +1,10 @@
 
 <?php
+session_start();
 include "new.php";
 
 // declaration de variables pour user
+if (isset($_POST['signup_submit'])){
 $rollnumber='';
 $rollnumber = (isset($_POST['roll'])? $_POST['roll']:'');
 $name = (isset($_POST['name'])? $_POST['name']:'');
@@ -10,23 +12,28 @@ $email =(isset($_POST['email'])? $_POST['email']: '');
 $password = (isset($_POST['password'])? $_POST['password']: '');
 $course = (isset($_POST['course'])? $_POST['course']: '');
 
-//declaration de variables pour admin
-$rollnumber1 = (isset($_POST['roll1'])? $_POST['roll1']:'');
-$password1 = (isset($_POST['password1'])? $_POST['password1']:'');
 
 //insert to database
 $sql = "INSERT INTO user (user_id, user_name, user_email, user_passw, user_course) VALUES ('$rollnumber', '$name', '$email', '$password', '$course')";
 $db->query($sql);
+}
 
 //connect to db
 if (isset($_POST['signin'])) {
-  echo $rollnumber1;
-$sql="SELECT * FROM user WHERE user_id ='$rollnumber1'";
+  //declaration de variables pour admin
+  $rollnumber1 = (isset($_POST['roll1'])? $_POST['roll1']:'');
+  $password1 = (isset($_POST['password1'])? $_POST['password1']:'');
+
+
+
+$sql="SELECT * FROM user WHERE user_id ='$rollnumber1' AND user_passw='$password1'";
 $result=$db->query($sql);
+$student=mysqli_fetch_assoc($result);
 $count=mysqli_num_rows($result);
-echo $count;
-if ($count>0) {
-  echo 'connected';
+$_SESSION['name']=$student['user_name'];
+if ($count==1) {
+  $_SESSION['connect']=1;
+  header('Location:admin.php');
 }
 else {
   echo 'Password Error';
