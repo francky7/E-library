@@ -1,15 +1,22 @@
   <?php
   session_start();
-  $name=$_SESSION['name'];
-  if(isset ($_POST['Logout'])){
-    session_destroy();
-    header('Location:index.php');
-  }
+include 'new.php';
+  // if(isset ($_POST['Logout'])){
+  //   session_destroy();
+  //   header('Location:index.php');
+  // }
+  $rollnumber1 = ((isset($_SESSION['rollnumber1']))?$_SESSION['rollnumber1']:'');
+  $password1 = ((isset($_SESSION['password1']))?$_SESSION['password1']:'');
+  $sql = "SELECT * FROM student WHERE student_id = '$rollnumber1' AND student_password = '$password1'";
+  $result=$db->query($sql);
+  $res=mysqli_fetch_assoc($result);
+  $image = $res['student_image'];
+  $name = $res['student_id'];
    ?>
--->
+
 <!DOCTYPE HTML>
 <?php
-if ($_SESSION['connect']==1):
+if (isset($_SESSION['name'])):
  ?>
 <?php
 include 'include/head.php';
