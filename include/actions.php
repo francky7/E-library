@@ -1,7 +1,5 @@
 <div class="down">
-      <a href="index.html"><img src="images/admin.jpg"></a>
-
-
+      <a href="index.html"><img src="images/<?=$image;?>"></a>
 
      <p><?= $name;  ?></p>
     <ul>

@@ -1,5 +1,5 @@
 <div class="down">
-      <a href="index.html"><img src="images/admin.jpg"></a>
+      <a href="index.html"><img src="images/<?=$image;?>" width=100px height=100px></a>
 
 
 
