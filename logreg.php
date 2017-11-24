@@ -3,8 +3,8 @@
 session_start();
 // include "int.php";
 
-$db = mysqli_connect('localhost', 'root', '','library');
-
+$db = mysqli_connect('localhost', 'root', '','labrary');
+  $error = 1;
 //connect to db
 if (isset($_POST['signup_submit'])){
 
@@ -29,7 +29,7 @@ $checking_count = mysqli_num_rows($toBeCount);
 
 if($checking_count >= 1){
   echo $checking_count;
-
+echo "<li class='text-danger'><p> roll number or password is wrong </p></h1>";
 }else{
 //in case of there is not student_id in the database now we can add that id onto it
 //insert to database
@@ -39,7 +39,7 @@ $target = "images/".basename($_FILES['image']['name']);
 
 $image = $_FILES['image']['name'];
 
-$sql = "INSERT INTO student (student_id, student_image, student_password) VALUES ('$rollnumber', '$image', '$password')";
+$sql = "INSERT INTO student (student_id, student_image, student_password, student_email, student_course) VALUES ('$rollnumber', '$image', '$password', '$email', '$course')";
 $db->query($sql);
 
 // moving the images into the image
@@ -59,21 +59,30 @@ if (isset($_POST['signin'])) {
 $rollnumber1 = (isset($_POST['roll1'])? $_POST['roll1']:'');
 $password1 = (isset($_POST['password1'])? $_POST['password1']:'');
 
-  echo $rollnumber1;
-$sql = "SELECT * FROM student WHERE student_id = '$rollnumber1' AND student_password = '$password1'";
-$_SESSION['rollnumber1']=$rollnumber1;
-$_SESSION['password1']=$password1;
-$result=$db->query($sql);
-$res=mysqli_fetch_assoc($result);
-$count=mysqli_num_rows($result);
+$sql_admin = "SELECT * FROM admin WHERE admin_id = '$rollnumber1' AND admin_password = '$password1'";
+$result_admin = $db->query($sql_admin);
+$count_admin=mysqli_num_rows($result_admin);
 
-echo $count;
-if ($count == 1) {
-  echo 'connected';
+if($count_admin == 1){
   header('Location:admin.php');
+  $_SESSION['rollnumber1']=$rollnumber1;
+  $_SESSION['password1']=$password1;
+}
+
+
+$sql_student = "SELECT * FROM student WHERE student_id = '$rollnumber1' AND student_password = '$password1'";
+$result_student=$db->query($sql_student);
+$count_student=mysqli_num_rows($result_student);
+if ($count_student == 1) {
+
+  echo 'connected';
+  header('Location:student.php');
+  $_SESSION['rollnumber1']=$rollnumber1;
+  $_SESSION['password1']=$password1;
 }
 else {
   echo 'Password Error';
+  $error = 0;
 }
 }
 ?>
@@ -82,7 +91,7 @@ else {
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Material design sign up form</title>
+  <title>Login page :</title>
 
 
 
@@ -90,7 +99,6 @@ else {
 
 
 </head>
-
 <body>
   <div id="login-box">
   <div class="left">
@@ -117,6 +125,9 @@ else {
     <input type="password" name="password1" placeholder="Password" />
     <input type="submit" name="signin" value="Login" />
     </form>
+    <?php if($error==0){
+      echo "<h5 style='color:red; background-color:#dc6d6d'><i> roll number or password are wrong<i> </h5>";
+    } ?>
 
   </div>
   <div class="or">OR</div>

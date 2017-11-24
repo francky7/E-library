@@ -5,7 +5,7 @@
 
      <p><?= $name;  ?></p>
     <ul>
-    <li><a class="tooltips" href="index.html"><span>Profile</span><i class="lnr lnr-user"></i></a></li>
+    <li><a class="tooltips" href="profile.php"><span>Profile</span><i class="lnr lnr-user"></i></a></li>
 
 
 

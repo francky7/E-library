@@ -5,7 +5,7 @@
 
 <li id="menu-academico" ><a href="#"><i class="fa fa-table"></i> <span> Students</span> <span class="fa fa-angle-right" style="float: right"></span></a>
 <ul id="menu-academico-sub" >
-<li id="menu-academico-avaliacoes" ><a href="tabs.html"> List</a></li>
+<li id="menu-academico-avaliacoes" ><a href="student_list.php"> List</a></li>
 </ul></li>
 <li id="menu-academico" ><a href="#"><i class="fa fa-table"></i> <span> Book</span> <span class="fa fa-angle-right" style="float: right"></span></a>
 <ul id="menu-academico-sub" >
