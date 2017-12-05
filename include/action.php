@@ -1,7 +1,7 @@
 <div class="menu">
 <ul id="menu" >
 
-<li><a href="index.html"><i class="fa fa-tachometer"></i> <span>Event</span></a></li>
+<li><a href="admin_event.php"><i class="fa fa-tachometer"></i> <span>Event</span></a></li>
 
 <li id="menu-academico" ><a href="#"><i class="fa fa-table"></i> <span> Students</span> <span class="fa fa-angle-right" style="float: right"></span></a>
 <ul id="menu-academico-sub" >
@@ -9,9 +9,9 @@
 </ul></li>
 <li id="menu-academico" ><a href="#"><i class="fa fa-table"></i> <span> Book</span> <span class="fa fa-angle-right" style="float: right"></span></a>
 <ul id="menu-academico-sub" >
-<li id="menu-academico-avaliacoes" ><a href="tabs.html"> Borrow</a></li>
+<li id="menu-academico-avaliacoes" ><a href="#"> Borrow</a></li>
 <li id="menu-academico-avaliacoes" ><a href="tabs.html">Return</a></li>
-<li id="menu-academico-avaliacoes" ><a href="tabs.html">Add</a></li>
+<li id="menu-academico-avaliacoes" ><a href="admin_add_book.php">Add</a></li>
 </ul></li>
 </div>
 </div>

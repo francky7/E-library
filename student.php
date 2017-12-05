@@ -6,6 +6,7 @@ if(isset ($_POST['Logout'])){
   session_destroy();
   header('Location:index.php');
 }
+
 $result = (isset($_SESSION['result'])?$_SESSION['result']:'');
 $name = (isset($_SESSION['rollnumber1'])?$_SESSION['rollnumber1']:'');
 $password1 = (isset($_SESSION['password1'])?$_SESSION['password1']:'');
@@ -14,9 +15,12 @@ $sql = "SELECT * FROM student WHERE student_id='$name' AND student_password='$pa
 $result = $db->query($sql);
 $res = mysqli_fetch_assoc($result);
 
+$sql_book = "SELECT * FROM books";
+$result_book = $db->query($sql_book);
+
 
  ?>
--->
+
 <!DOCTYPE HTML>
 
 <html>
@@ -81,21 +85,22 @@ include 'include/head.php' ;
 <!--  make this part dynamic take the file inside the database-->
   <div class="gallery">
      <div class="gallery-bottom grid">
-       <div class="col-md-3 g-left">
-
-         </div>
+         <?php
+            while($array_book = mysqli_fetch_assoc($result_book)):
+          ?>
          <div class="col-md-3 g-left">
-           <a href="images/p4.jpg" rel="title" class="b-link-stripe b-animate-go  thickbox">
+           <a href="#" rel="title" class="b-link-stripe b-animate-go  thickbox">
              <figure class="effect-oscar">
-               <img src="images/p4.jpg" alt=""/>
+               <img src="books/<?=$array_book['book_cover'];?>" alt="" width="200px" height="250px"/>
                <figcaption>
-                 <h4>Read This Book Online</h4>
+                 <h4>Read Online</h4>
                    <!-- <p><i class="lnr lnr-magnifier"></i></p> -->
                </figcaption>
              </figure>
            </a>
          </div>
 
+       <?php endwhile; ?>
        </div>
      </div>
 
