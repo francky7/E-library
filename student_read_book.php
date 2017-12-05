@@ -24,13 +24,6 @@ $result_book = $db->query($sql_book);
 <!DOCTYPE HTML>
 
 <html>
-<head>
-  <title>Student Home Page</title>
-</head>
-
-<style media="screen">
-
-</style>
 <?php
 include 'include/head.php' ;
  ?>
@@ -88,39 +81,20 @@ include 'include/head.php' ;
           ?> -->
 
 
-<center> body center
+<!-- <center> body center  </center> -->
 <!--  make this part dynamic take the file inside the database-->
-  <div class="gallery">
-     <div class="gallery-bottom grid">
-       <div class="row">
-          <div class="col-md-offset-2">
 
-         <?php
-            while($array_book = mysqli_fetch_assoc($result_book)):
-          ?>
-         <!-- <div class="col-md-3 g-left"> -->
-         <div class="col-md-3">
-           <a href="#" rel="title" class="b-link-stripe b-animate-go  thickbox">
-             <figure class="effect-oscar">
-               <img src="books/<?=$array_book['book_cover'];?>" alt="" width="200px" height="250px"/>
-               <figcaption>
-                   <!-- <p><i class="lnr lnr-magnifier"></i></p> -->
-                   <h4><a href="student_read_book.php?read=<?=$array_book['book_image'];?>">Read Online</a></h4>
-               </figcaption>
-             </figure>
-           </a>
-         </div>
 
-       <?php endwhile; ?>
+<?php if(isset($_GET['read'])): ?>
+  <?php echo $_GET['read']; ?>
+  <div class="row">
+    <div class="col-md-offset-2 col-md-10">
+      <embed src="books/<?=$_GET['read'];?>" type="application/pdf"   height="700px" width="100%">
 
-     </div>
-     </div>
-       </div>
-     </div>
-</center>
-<!--  test open pdf in tap-->
-<!-- <embed src="books/yss.pdf" type="application/pdf"   height="300px" width="100%"> -->
+    </div>
 
+  </div>
+<?php endif; ?>
 
 
 

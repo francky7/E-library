@@ -8,11 +8,11 @@ session_start();
 //   header('Location:index.php');
 // }
 $db = mysqli_connect('localhost','root','','labrary');
-if($db){
-  echo "connect to dabase";
-}else{
-  echo "not connected to database";
-}
+// if($db){
+//   echo "connect to dabase";
+// }else{
+//   echo "not connected to database";
+// }
 $rollnumber1 = ((isset($_SESSION['rollnumber1']))?$_SESSION['rollnumber1']:'');
 $password1 = ((isset($_SESSION['password1']))?$_SESSION['password1']:'');
 $sql = "SELECT * FROM admin WHERE admin_id = '$rollnumber1' AND admin_password = '$password1'";

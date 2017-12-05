@@ -19,7 +19,7 @@
 
       <li id="menu-academico" ><a href="#"><i class="fa fa-table"></i> <span> Book</span> <span class="fa fa-angle-right" style="float: right"></span></a>
          <ul id="menu-academico-sub" >
-        <li id="menu-academico-avaliacoes" ><a href="#"> List</a></li>
+        <li id="menu-academico-avaliacoes" ><a href="student.php"> List</a></li>
         <li id="menu-academico-avaliacoes" ><a href="tabs.html">Return</a></li>
         <li id="menu-academico-avaliacoes" ><a href="tabs.html">My list</a></li>
         </ul></li>
