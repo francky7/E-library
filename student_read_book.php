@@ -87,11 +87,18 @@ include 'include/head.php' ;
 
 <?php if(isset($_GET['read'])): ?>
   <?php echo $_GET['read']; ?>
-  <div class="row">
-    <div class="col-md-offset-2 col-md-10">
-      <embed src="books/<?=$_GET['read'];?>" type="application/pdf"   height="700px" width="100%">
+  <div class="container-fluid">
+    <div class="row">
 
-    </div>
+      <div class="col-md-offset-2 col-md-10">
+        <p>Click Here for full screen</p>
+    <a href="#" onclick="window.open('books/<?=$_GET['read'];?>', '_blank', 'fullscreen=yes'); return false;">MyPDF</a>
+    <br>
+        <embed src="books/<?=$_GET['read'];?>" type="application/pdf"   height="700px" width="100%">
+
+        </div>
+
+      </div>
 
   </div>
 <?php endif; ?>

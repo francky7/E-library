@@ -15,7 +15,7 @@
              <div class="menu">
     <ul id="menu" >
 
-      <li><a href="index.html"><i class="fa fa-tachometer"></i> <span>Event</span></a></li>
+      <li><a href="student_event.php"><i class="fa fa-tachometer"></i> <span>Event</span></a></li>
 
       <li id="menu-academico" ><a href="#"><i class="fa fa-table"></i> <span> Book</span> <span class="fa fa-angle-right" style="float: right"></span></a>
          <ul id="menu-academico-sub" >

@@ -35,3 +35,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!--//skycons-icons-->
 </head>
+
+<style media="screen">
+  textarea{
+    resize: none;
+  }
+
+  body{
+    margin-top: 100px;
+  }
+</style>

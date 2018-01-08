@@ -1,4 +1,4 @@
-<div class="charts" style="margin-left:300px">
+<!-- <div class="charts" style="margin-left:300px">
   <div class="chrt-inner">
     <div class="chrt-bars">
     <div class="col-md-6 chrt-two">
@@ -36,4 +36,4 @@
     </div>
 </div>
 </div>
-  </div>
+  </div> -->

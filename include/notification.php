@@ -1,4 +1,4 @@
-<div class="profile_details_left" style="margin-top:2%;">
+<!-- <div class="profile_details_left" style="margin-top:2%;">
   <ul class="nofitications-dropdown">
 
          <li class="dropdown note">
@@ -138,4 +138,4 @@
   <div class="clearfix"></div>
     </ul>
   </div>
-  <div class="clearfix"></div>
+  <div class="clearfix"></div> -->

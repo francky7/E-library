@@ -6,21 +6,16 @@ session_start();
 $db = mysqli_connect('localhost', 'root', '','labrary');
   $error = 1;
 //connect to db
-if (isset($_POST['signup_submit'])){
+if(isset($_POST['signup_submit'])){
 
 // declaration de variables pour user
-$rollnumber='';
+
 $rollnumber = (isset($_POST['roll'])? $_POST['roll']:'');
 $name = (isset($_POST['name'])? $_POST['name']:'');
 $email =(isset($_POST['email'])? $_POST['email']: '');
 $password = (isset($_POST['password'])? $_POST['password']: '');
 $course = (isset($_POST['course'])? $_POST['course']: '');
 //$image = (isset($_POST['image'])? $_POST['image']: '');
-
-//connect to the db
-
-// $get all submit data from the form
-
 
 //check if the roll number exist in the database
 $checking = "SELECT * FROM student WHERE student_id = '$rollnumber'";
@@ -35,12 +30,20 @@ echo "<li class='text-danger'><p> roll number or password is wrong </p></h1>";
 //insert to database
 
 // store the path of the upload
+$rollnumber = (isset($_POST['roll'])? $_POST['roll']:'');
+$name = (isset($_POST['name'])? $_POST['name']:'');
+$email =(isset($_POST['email'])? $_POST['email']: '');
+$password = (isset($_POST['password'])? $_POST['password']: '');
+$course = (isset($_POST['course'])? $_POST['course']: '');
 $target = "images/".basename($_FILES['image']['name']);
 
-$image = $_FILES['image']['name'];
+$image =(isset($_FILES['image']['name'])?$_FILES['image']['name']:'');
 
-$sql = "INSERT INTO student (student_id, student_image, student_password, student_email, student_course) VALUES ('$rollnumber', '$image', '$password', '$email', '$course')";
-$db->query($sql);
+
+$sql_create = "INSERT INTO `student`(`student_count`, `student_id`, `student_image`, `student_mail`, `student_course`, `student_password`, `student_name`)
+VALUES ('','$rollnumber','$image','$email','$course','$password','$name')";
+
+$db->query($sql_create);
 
 // moving the images into the image
 
@@ -113,7 +116,7 @@ else {
     <input type="password" name="password" placeholder="Password" />
     <input type="text" name="course" placeholder="course" />
 
-    <input type="submit" name="signup_submit" value="Sign me up" action="logreg.php" >
+    <input type="submit" name="signup_submit" value="Sign up" >
     </form>
 
   </div>

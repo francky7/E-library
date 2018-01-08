@@ -21,12 +21,7 @@ $result_book = $db->query($sql_book);
 
  ?>
 
-<!DOCTYPE HTML>
 
-<html>
-<head>
-  <title>Student Home Page</title>
-</head>
 
 <style media="screen">
 
@@ -73,7 +68,7 @@ include 'include/head.php' ;
     <!--/down-->
 
     <div class="down">
-          <a href="index.html"><img src="images/<?=$res['student_image'];?>" width=100px height=100px></a>
+          <a href="#"><img src="images/<?=$res['student_image'];?>" width=100px height=100px></a>
 
          <p><?=$name;  ?></p>
         <ul>
@@ -89,32 +84,56 @@ include 'include/head.php' ;
 
 
 <center> body center
+
+
+
 <!--  make this part dynamic take the file inside the database-->
   <div class="gallery">
      <div class="gallery-bottom grid">
-       <div class="row">
-          <div class="col-md-offset-2">
+       <div class="container-fluid">
 
-         <?php
-            while($array_book = mysqli_fetch_assoc($result_book)):
-          ?>
-         <!-- <div class="col-md-3 g-left"> -->
-         <div class="col-md-3">
-           <a href="#" rel="title" class="b-link-stripe b-animate-go  thickbox">
-             <figure class="effect-oscar">
-               <img src="books/<?=$array_book['book_cover'];?>" alt="" width="200px" height="250px"/>
-               <figcaption>
-                   <!-- <p><i class="lnr lnr-magnifier"></i></p> -->
-                   <h4><a href="student_read_book.php?read=<?=$array_book['book_image'];?>">Read Online</a></h4>
-               </figcaption>
-             </figure>
-           </a>
+         <div class="row">
+           <div class="col-md-offset-2">
+
+             <?php
+             while($array_book = mysqli_fetch_assoc($result_book)):
+               ?>
+               <!-- <div class="col-md-3 g-left"> -->
+               <div class="col-md-3">
+                 <a href="#" rel="title" class="b-link-stripe b-animate-go  thickbox">
+                   <figure class="effect-oscar">
+                     <img src="books/<?=$array_book['book_cover'];?>" alt="" width="200px" height="250px"/>
+                     <figcaption>
+                       <!-- <p><i class="lnr lnr-magnifier"></i></p> -->
+                       <a href="#" onclick="window.open('books/<?=$array_book['book_image'];?>', '_blank', 'fullscreen=yes'); return false;">
+                          <span class="glyphicon glyphicon-align-left" aria-hidden="true">read</span></a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+                                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample<?=$array_book['book_id'];?>" aria-expanded="false" aria-controls="collapseExample">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true">Infos</span>
+                              </button>
+                              <div class="collapse" id="collapseExample<?=$array_book['book_id'];?>">
+                                <div class="well">
+                                <?php
+
+                                  echo  "Book Name: ".$array_book['book_name']."<br>";
+                                    echo "Book Quantity: ".$array_book['book_quantity']."<br>";
+                                    echo "Book Description: ".$array_book['book_description']."<br>";
+                                    echo "Book category: ".$array_book['book_category']."<br>";
+                                 ?>
+                                </div>
+                              </div>
+
+                       <!-- <h4><a href="student_read_book.php?read=<?=$array_book['book_image'];?>">Read Online</a></h4> -->
+                     </figcaption>
+                   </figure>
+                 </a>
+               </div>
+
+             <?php endwhile; ?>
+
+           </div>
          </div>
-
-       <?php endwhile; ?>
-
-     </div>
-     </div>
+       </div>
        </div>
      </div>
 </center>
